@@ -469,6 +469,96 @@
     }
 
     /* =========================
+       HORARIOS
+    ========================= */
+
+    .schedule-section {
+      background: var(--white);
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 950px;
+      margin: 60px auto 0;
+    }
+
+    .schedule-card {
+      position: relative;
+      padding: 45px 30px;
+      text-align: center;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #fffdf9, #f4e8d8);
+      border: 1px solid rgba(185,149,88,.25);
+      box-shadow: 0 20px 50px rgba(73,55,44,.08);
+      overflow: hidden;
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .schedule-card::before {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: rgba(225,196,140,.16);
+      top: -60px;
+      right: -50px;
+    }
+
+    .schedule-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(73,55,44,.14);
+    }
+
+    .schedule-icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .schedule-time {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(55px, 7vw, 78px);
+      line-height: 1;
+      color: var(--gold);
+      position: relative;
+      z-index: 1;
+    }
+
+    .schedule-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      color: var(--brown);
+      margin: 12px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .schedule-place {
+      color: var(--brown2);
+      font-size: 14px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .schedule-note {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      background: rgba(185,149,88,.12);
+      color: var(--brown);
+      font-size: 11px;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =========================
        VENUE
     ========================= */
 
@@ -514,6 +604,17 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       font-size: 12px;
+    }
+
+    .venue-time {
+      margin-top: 22px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 31px;
+      color: white;
+    }
+
+    .venue-time strong {
+      color: var(--gold2);
     }
 
     .map-button {
@@ -926,6 +1027,11 @@
         padding: 35px 25px;
       }
 
+      .schedule-grid {
+        grid-template-columns: 1fr;
+        max-width: 650px;
+      }
+
       .timeline {
         max-width: 650px;
       }
@@ -1041,6 +1147,28 @@
         font-size: 28px;
       }
 
+      .schedule-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 40px;
+      }
+
+      .schedule-card {
+        padding: 35px 20px;
+      }
+
+      .schedule-time {
+        font-size: 60px;
+      }
+
+      .schedule-title {
+        font-size: 30px;
+      }
+
+      .schedule-place {
+        font-size: 13px;
+      }
+
       .venue-card {
         padding: 40px 18px;
         margin-top: 35px;
@@ -1053,6 +1181,10 @@
       .venue-place {
         font-size: 10px;
         letter-spacing: 2px;
+      }
+
+      .venue-time {
+        font-size: 27px;
       }
 
       .map-button {
@@ -1164,6 +1296,10 @@
         font-size: 39px;
       }
 
+      .schedule-time {
+        font-size: 52px;
+      }
+
       .venue-card {
         padding: 32px 15px;
       }
@@ -1208,13 +1344,17 @@
       }
     }
 
-    /* Evita efectos hover raros en pantallas táctiles */
+    /* =========================
+       TOUCH
+    ========================= */
+
     @media (hover: none) {
 
       .detail-card:hover,
       .count-box:hover,
       .map-button:hover,
-      .rsvp-button:hover {
+      .rsvp-button:hover,
+      .schedule-card:hover {
         transform: none;
       }
     }
@@ -1371,7 +1511,7 @@
         </h2>
 
         <p class="section-text">
-          Una fecha, un lugar y un momento que queremos compartir
+          Una fecha, dos lugares y un momento que queremos compartir
           con todas las personas importantes para nosotros.
         </p>
 
@@ -1398,16 +1538,16 @@
           <div class="detail-card reveal">
 
             <div class="detail-icon">
-              📍
+              ⚖️
             </div>
 
             <div class="detail-title">
-              Lugar
+              Juzgado
             </div>
 
             <div class="detail-text">
-              Castell de Roca Mora<br>
-              Montferri
+              Juzgado de Reus<br>
+              <strong>12:45</strong>
             </div>
 
           </div>
@@ -1416,7 +1556,7 @@
           <div class="detail-card reveal">
 
             <div class="detail-icon">
-              🥂
+              🏰
             </div>
 
             <div class="detail-title">
@@ -1424,8 +1564,89 @@
             </div>
 
             <div class="detail-text">
-              Un día lleno de amor,
-              alegría y momentos inolvidables.
+              Castell de Roca Mora<br>
+              Montferri<br>
+              <strong>Estar allí a las 14:15</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         HORARIOS
+    ========================= -->
+
+    <section class="schedule-section">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          ⏰ Horarios importantes
+        </div>
+
+        <h2 class="section-title">
+          A tener en cuenta
+        </h2>
+
+        <p class="section-text">
+          Estos son los dos momentos importantes del día.
+          ¡Intentad llegar con tiempo! ❤️
+        </p>
+
+        <div class="schedule-grid">
+
+          <div class="schedule-card reveal">
+
+            <div class="schedule-icon">
+              ⚖️
+            </div>
+
+            <div class="schedule-time">
+              12:45
+            </div>
+
+            <div class="schedule-title">
+              Boda
+            </div>
+
+            <div class="schedule-place">
+              Juzgado de Reus
+            </div>
+
+            <div class="schedule-note">
+              💍 Ceremonia
+            </div>
+
+          </div>
+
+
+          <div class="schedule-card reveal">
+
+            <div class="schedule-icon">
+              🏰
+            </div>
+
+            <div class="schedule-time">
+              14:15
+            </div>
+
+            <div class="schedule-title">
+              Celebración
+            </div>
+
+            <div class="schedule-place">
+              Castell de Roca Mora<br>
+              Montferri
+            </div>
+
+            <div class="schedule-note">
+              📍 Hay que estar allí a las 14:15
             </div>
 
           </div>
@@ -1454,8 +1675,9 @@
         </h2>
 
         <p class="section-text">
-          Todo sucederá en un lugar muy especial,
-          preparado para celebrar este día con vosotros.
+          Después de la ceremonia en Reus,
+          nos encontraremos en Castell de Roca Mora
+          para continuar juntos este día tan especial.
         </p>
 
         <div class="venue-card reveal">
@@ -1466,6 +1688,11 @@
 
           <div class="venue-place">
             Montferri
+          </div>
+
+          <div class="venue-time">
+            ⏰ Hay que estar allí a las
+            <strong>14:15</strong>
           </div>
 
           <a
@@ -1507,16 +1734,17 @@
             <div class="timeline-dot"></div>
 
             <div class="timeline-date">
-              23 · 10 · 2026
+              12:45 · REUS
             </div>
 
             <div class="timeline-title">
-              💍 Comienza nuestra historia
+              ⚖️ La ceremonia
             </div>
 
             <div class="timeline-text">
-              Un día que quedará para siempre
-              en nuestros recuerdos.
+              Nos damos el sí en el
+              Juzgado de Reus.
+              💍❤️
             </div>
 
           </div>
@@ -1527,16 +1755,17 @@
             <div class="timeline-dot"></div>
 
             <div class="timeline-date">
-              CELEBRACIÓN
+              14:15 · MONTFERRI
             </div>
 
             <div class="timeline-title">
-              🥂 A celebrar
+              🏰 Llegamos al castillo
             </div>
 
             <div class="timeline-text">
-              Risas, abrazos, música y mucha alegría
-              para compartir juntos.
+              Hay que estar en Castell de Roca Mora
+              a las 14:15 para continuar
+              con la celebración.
             </div>
 
           </div>
@@ -1551,12 +1780,13 @@
             </div>
 
             <div class="timeline-title">
-              ❤️ Disfrutemos juntos
+              🥂 A celebrar
             </div>
 
             <div class="timeline-text">
-              Gracias por formar parte de un día
-              tan importante para nosotros.
+              Risas, abrazos, música y mucha alegría
+              para compartir juntos.
+              ✨❤️
             </div>
 
           </div>
@@ -1676,7 +1906,10 @@
 
   <!-- BOTÓN ARRIBA -->
 
-  <button id="topButton" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <button
+    id="topButton"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  >
     ↑
   </button>
 
@@ -1687,8 +1920,11 @@
        ABRIR SOBRE
     ========================= */
 
-    const envelope = document.getElementById("envelope");
-    const intro = document.getElementById("intro");
+    const envelope =
+      document.getElementById("envelope");
+
+    const intro =
+      document.getElementById("intro");
 
     envelope.addEventListener("click", () => {
 
@@ -1708,12 +1944,15 @@
     ========================= */
 
     const weddingDate =
-      new Date("2026-10-23T18:00:00").getTime();
+      new Date("2026-10-23T12:45:00").getTime();
 
     function updateCountdown() {
 
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
+      const now =
+        new Date().getTime();
+
+      const distance =
+        weddingDate - now;
 
       if (distance <= 0) {
 
@@ -1726,7 +1965,9 @@
       }
 
       const days =
-        Math.floor(distance / (1000 * 60 * 60 * 24));
+        Math.floor(
+          distance / (1000 * 60 * 60 * 24)
+        );
 
       const hours =
         Math.floor(
@@ -1757,11 +1998,15 @@
 
       document.getElementById("seconds").textContent =
         String(seconds).padStart(2, "0");
+
     }
 
     updateCountdown();
 
-    setInterval(updateCountdown, 1000);
+    setInterval(
+      updateCountdown,
+      1000
+    );
 
 
     /* =========================
@@ -1781,7 +2026,9 @@
 
               entry.target.classList.add("visible");
 
-              revealObserver.unobserve(entry.target);
+              revealObserver.unobserve(
+                entry.target
+              );
 
             }
 
@@ -1810,7 +2057,8 @@
       const particle =
         document.createElement("div");
 
-      particle.className = "particle";
+      particle.className =
+        "particle";
 
       particle.style.left =
         Math.random() * 100 + "%";
@@ -1827,7 +2075,10 @@
       particle.style.height =
         particle.style.width;
 
-      particles.appendChild(particle);
+      particles.appendChild(
+        particle
+      );
+
     }
 
 
@@ -1843,10 +2094,15 @@
       const heart =
         document.createElement("div");
 
-      heart.className = "heart";
+      heart.className =
+        "heart";
 
       heart.textContent =
-        ["♡", "♥", "❤", "💕"][Math.floor(Math.random() * 4)];
+        ["♡", "♥", "❤", "💕"][
+          Math.floor(
+            Math.random() * 4
+          )
+        ];
 
       heart.style.left =
         Math.random() * 100 + "%";
@@ -1857,7 +2113,10 @@
       heart.style.animationDuration =
         7 + Math.random() * 7 + "s";
 
-      hearts.appendChild(heart);
+      hearts.appendChild(
+        heart
+      );
+
     }
 
 
@@ -1868,12 +2127,13 @@
     const petals =
       document.getElementById("petals");
 
-    for (let i = 20; i < 35; i++) {
+    for (let i = 0; i < 35; i++) {
 
       const petal =
         document.createElement("div");
 
-      petal.className = "petal";
+      petal.className =
+        "petal";
 
       petal.style.left =
         Math.random() * 100 + "%";
@@ -1884,7 +2144,10 @@
       petal.style.animationDuration =
         8 + Math.random() * 9 + "s";
 
-      petals.appendChild(petal);
+      petals.appendChild(
+        petal
+      );
+
     }
 
 
@@ -1900,9 +2163,11 @@
       const star =
         document.createElement("div");
 
-      star.className = "star";
+      star.className =
+        "star";
 
-      star.textContent = "✦";
+      star.textContent =
+        "✦";
 
       star.style.left =
         Math.random() * 100 + "%";
@@ -1913,7 +2178,10 @@
       star.style.animationDelay =
         Math.random() * 3 + "s";
 
-      stars.appendChild(star);
+      stars.appendChild(
+        star
+      );
+
     }
 
 
@@ -1930,13 +2198,26 @@
         const confetti =
           document.createElement("div");
 
-        confetti.style.position = "fixed";
-        confetti.style.left = "50%";
-        confetti.style.top = "50%";
-        confetti.style.width = "7px";
-        confetti.style.height = "12px";
-        confetti.style.zIndex = "10000";
-        confetti.style.pointerEvents = "none";
+        confetti.style.position =
+          "fixed";
+
+        confetti.style.left =
+          "50%";
+
+        confetti.style.top =
+          "50%";
+
+        confetti.style.width =
+          "7px";
+
+        confetti.style.height =
+          "12px";
+
+        confetti.style.zIndex =
+          "10000";
+
+        confetti.style.pointerEvents =
+          "none";
 
         confetti.style.background =
           [
@@ -1945,24 +2226,38 @@
             "#ffffff",
             "#d8b48b",
             "#49372c"
-          ][Math.floor(Math.random() * 5)];
+          ][
+            Math.floor(
+              Math.random() * 5
+            )
+          ];
 
         confetti.style.borderRadius =
-          Math.random() > .5 ? "50%" : "2px";
+          Math.random() > .5
+            ? "50%"
+            : "2px";
 
-        document.body.appendChild(confetti);
+        document.body.appendChild(
+          confetti
+        );
 
         const angle =
-          Math.random() * Math.PI * 2;
+          Math.random() *
+          Math.PI *
+          2;
 
         const distance =
-          120 + Math.random() * 380;
+          120 +
+          Math.random() *
+          380;
 
         const x =
-          Math.cos(angle) * distance;
+          Math.cos(angle) *
+          distance;
 
         const y =
-          Math.sin(angle) * distance;
+          Math.sin(angle) *
+          distance;
 
         confetti.animate(
           [
@@ -1979,15 +2274,20 @@
           ],
           {
             duration:
-              1000 + Math.random() * 1300,
-            easing: "cubic-bezier(.2,.7,.3,1)"
+              1000 +
+              Math.random() *
+              1300,
+            easing:
+              "cubic-bezier(.2,.7,.3,1)"
           }
         );
 
         setTimeout(() => {
           confetti.remove();
         }, 2500);
+
       }
+
     }
 
 
@@ -2009,17 +2309,30 @@
     ========================= */
 
     const topButton =
-      document.getElementById("topButton");
+      document.getElementById(
+        "topButton"
+      );
 
-    window.addEventListener("scroll", () => {
+    window.addEventListener(
+      "scroll",
+      () => {
 
-      if (window.scrollY > 500) {
-        topButton.classList.add("show");
-      } else {
-        topButton.classList.remove("show");
+        if (window.scrollY > 500) {
+
+          topButton.classList.add(
+            "show"
+          );
+
+        } else {
+
+          topButton.classList.remove(
+            "show"
+          );
+
+        }
+
       }
-
-    });
+    );
 
   </script>
 
